@@ -1,0 +1,11 @@
+{
+  "PetName": "千千",
+  "WindowLeft": 1315.0,
+  "WindowTop": 608.0,
+  "AnimationPaused": false,
+  "VoiceEnabled": true,
+  "WakeWord": "嘿小狗",
+  "IdleSleepMinutes": 5,
+  "WorkingDirectory": ".",
+  "TranscriptsDirectory": ""
+}

@@ -1,0 +1,61 @@
+<UserControl x:Class="ClaudePet.UI.BubbleOverlay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="290" Height="240">
+    <Border Background="#F0181818" CornerRadius="12" Padding="8" BorderBrush="#444" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- 标题栏 -->
+            <Grid Grid.Row="0" Margin="0,0,0,6">
+                <TextBlock Text="💬 跟千千说..." FontSize="11" Foreground="#AAA"
+                           VerticalAlignment="Center" />
+                <Button Content="✕" Width="22" Height="22"
+                        Background="Transparent" Foreground="#888"
+                        BorderThickness="0" FontSize="12"
+                        HorizontalAlignment="Right"
+                        Click="CloseButton_Click"
+                        ToolTip="关闭 (或再点一下小狗)" />
+            </Grid>
+
+            <!-- 消息列表 -->
+            <ScrollViewer x:Name="ChatScroll" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="MessagesPanel" />
+            </ScrollViewer>
+
+            <!-- 输入区 -->
+            <Grid Grid.Row="2" Margin="0,8,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <!-- 语音按钮 -->
+                <Button Grid.Column="0" Content="🎤" Width="32" Height="28"
+                        Background="#444" Foreground="White"
+                        BorderThickness="0" FontSize="12"
+                        Click="VoiceButton_Click"
+                        ToolTip="语音输入 (或按 Ctrl+Shift+W 唤醒)" />
+                <!-- 输入框 -->
+                <TextBox x:Name="InputBox"
+                         Grid.Column="1"
+                         Background="#333"
+                         Foreground="White"
+                         BorderThickness="0"
+                         FontSize="12"
+                         Padding="6,4"
+                         Margin="4,0"
+                         KeyDown="InputBox_KeyDown" />
+                <!-- 发送按钮 -->
+                <Button Grid.Column="2" Content="发送" Width="50" Height="28"
+                        Background="#4CAF50" Foreground="White"
+                        BorderThickness="0" FontSize="11"
+                        Click="SendButton_Click" />
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
