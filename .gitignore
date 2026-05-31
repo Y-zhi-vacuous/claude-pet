@@ -5,3 +5,10 @@ publish/
 .vs/
 *.log
 chat_history.md
+
+# Temp & analysis
+analyze*.py
+generate_sprites.py
+*.txt
+pixel_grid.txt
+screenshot_*.png
