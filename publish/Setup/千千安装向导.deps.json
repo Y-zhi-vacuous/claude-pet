@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "千千安装向导/1.0.0": {
+        "runtime": {
+          "千千安装向导.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "千千安装向导/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
