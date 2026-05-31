@@ -362,11 +362,26 @@ public partial class MainWindow : Window
         catch { return false; }
     }
 
+    private static string FindClaude()
+    {
+        var home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        var candidates = new[] {
+            Path.Combine(home, "AppData", "Roaming", "npm", "claude.cmd"),
+            Path.Combine(home, "AppData", "Roaming", "npm", "claude"),
+            Path.Combine(home, "AppData", "Local", "npm", "claude.cmd"),
+            "claude.cmd", "claude"
+        };
+        foreach (var c in candidates)
+            if (File.Exists(c)) return c;
+        return "claude";
+    }
+
     private static bool CheckClaude()
     {
         try
         {
-            var psi = new ProcessStartInfo("claude", "--version")
+            var claudePath = FindClaude();
+            var psi = new ProcessStartInfo(claudePath, "--version")
             { RedirectStandardOutput = true, UseShellExecute = false, CreateNoWindow = true };
             var p = Process.Start(psi);
             p!.WaitForExit(5000);
