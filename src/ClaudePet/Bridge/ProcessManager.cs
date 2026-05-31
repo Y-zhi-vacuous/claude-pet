@@ -80,7 +80,7 @@ public class ProcessManager : IDisposable
         var psi = new ProcessStartInfo
         {
             FileName = _claudePath,
-            Arguments = $"-p \"{EscapeArg(prompt)}\"",
+            Arguments = $"-p \"{EscapeArg(prompt)}\" --permission-mode bypassPermissions",
             WorkingDirectory = _workingDir,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
