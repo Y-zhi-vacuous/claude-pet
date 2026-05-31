@@ -36,8 +36,9 @@ public partial class App : Application
             _claudePath = ProcessManager.FindClaudePath();
             var home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             var transcriptsDir = Path.Combine(home, ".claude", "projects");
+            // 工作目录设到 D 盘根目录（而不是项目目录），避免文件访问被沙箱限制
             _workDir = string.IsNullOrEmpty(petConfig.WorkingDirectory) || petConfig.WorkingDirectory == "."
-                ? baseDir : Path.GetFullPath(Path.Combine(baseDir, petConfig.WorkingDirectory));
+                ? @"D:\" : Path.GetFullPath(Path.Combine(baseDir, petConfig.WorkingDirectory));
 
             _bridge = new ClaudeBridge(_workDir, transcriptsDir, _claudePath);
 
